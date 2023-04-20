@@ -2,7 +2,7 @@ import logout from '@assets/logo/logout.svg';
 
 const SettingDashBoard = () => {
   return (
-    <div className="text- flex flex-col w-screen min-h-fit p-6 gap-10">
+    <div className="text- flex flex-col w-screen min-h-fit p-6 gap-10 bg-bg-color-1 rounded-lg">
       <h2 className="text-4xl text-slate-50">Settings</h2>
       <div className="flex flex-col gap-4">
         <h2 className="text-2xl text-slate-100">Account</h2>

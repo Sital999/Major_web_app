@@ -2,11 +2,14 @@ import React from 'react';
 // import clsx from 'clsx';
 import { Button } from '@components/button';
 import Logo from '@assets/logo/ioe_portal_logo.svg';
-import Home from '@assets/logo/homeIcon.svg';
-import Library from '@assets/logo/library.svg';
-import Search from '@assets/logo/search.svg';
+// import Home from '@assets/logo/homeIcon.svg';
+// import Library from '@assets/logo/library.svg';
+// import Search from '@assets/logo/search.svg';
+import DashBoard from '@assets/logo/dashboard.svg';
+import Academia from '@assets/logo/academia.svg';
+import Content from '@assets/logo/content.svg';
+
 import Install from '@assets/logo/install.svg';
-import { Card } from '@components/card';
 
 interface ISideBarProps {
   setDashboard: React.Dispatch<React.SetStateAction<string>>;
@@ -24,47 +27,52 @@ export const SideBar = ({ setDashboard, setIsSetting }: ISideBarProps) => {
           </div>
           <div className="child:py-2">
             <Button
-              varient="secondary"
-              icon={<img src={Home} alt="Home" />}
-              text="Home"
-              size="xl"
+              varient="null"
+              icon={<img src={DashBoard} alt="DashBoard" />}
+              text="DashBoard"
+              size="lg"
               isMenu
               handleClick={() => {
-                setDashboard('Home');
+                setDashboard('DashBoard');
                 setIsSetting(false);
               }}
             />
             <Button
-              varient="secondary"
-              icon={<img src={Search} alt="Search" />}
-              text="Search"
+              varient="null"
+              icon={<img src={Academia} alt="Academia" />}
+              text="Academia"
               size="lg"
               isMenu
+              isChevron
               handleClick={() => {
-                setDashboard('Search');
+                // setDashboard('Academia');
                 setIsSetting(false);
               }}
             />
+
             <Button
-              varient="secondary"
-              icon={<img src={Library} alt="Library" />}
-              text="Library"
+              varient="null"
+              icon={<img src={Content} alt="Content" />}
+              text="Content"
               size="lg"
               isMenu
-              handleClick={() => setDashboard('Library')}
+              isChevron
+              handleClick={() => {
+                // setDashboard('Content');
+              }}
             />
           </div>
           <div className="h-1 self-center w-[80%] bg-bg-color-2" />
 
           <Button
             icon={<img src={Install} alt="Install" />}
-            varient="secondary"
+            varient="null"
             text="Install App"
             size="sm"
             isMenu
           />
         </div>
-        <Card size={'md'} />
+        {/* <Card size={'md'} /> */}
       </div>
     </div>
   );

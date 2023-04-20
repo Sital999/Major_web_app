@@ -1,16 +1,20 @@
 // import { Spinner } from '@components/spinner';
 import clsx from 'clsx';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+import ChevronDown from '@assets/logo/chevron_down.svg';
+import ChevronRight from '@assets/logo/chevron_right.svg';
+
 interface IButtonProps {
   isDisabled?: boolean;
   handleClick?: () => void;
-  varient?: 'primary' | 'secondary';
+  varient?: 'primary' | 'secondary' | 'null';
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   borderSize?: 'base' | 'full' | 'fit';
   className?: string;
   text?: string;
   icon?: ReactElement | null;
   isMenu?: boolean;
+  isChevron?: boolean;
 }
 
 export const Button = (props: IButtonProps): ReactElement => {
@@ -18,13 +22,15 @@ export const Button = (props: IButtonProps): ReactElement => {
     isDisabled = false,
     handleClick = () => null,
     size = 'base',
-    varient = 'primary',
+    varient = 'null',
     text = 'Button Text',
     icon = null,
     borderSize = 'base',
     isMenu = false,
     className = '',
+    isChevron = false,
   } = props;
+  const [click, setClick] = useState(false);
   return (
     <div className={clsx('flex space-x-2 justify-center ', className)}>
       <button
@@ -33,14 +39,11 @@ export const Button = (props: IButtonProps): ReactElement => {
         className={clsx(
           'inline-block px-4 font-medium text-center text-white rounded-xl  focus:outline-none focus:ring-0 transition duration-150 ease-in-out',
           {
-            // 'p-1 border-primary text-white ring-2 ring-primary focus:ring-2 focus:border-primary focus:ring-primary':
-            //   varient === 'primary',
-            // 'border-white text-white ring-2 ring-slate-300 focus:ring-2 focus:border-primary focus:ring-primary p-1':
-            //   varient === 'secondary',
-            // 'p-1 border-primary text-white ring-2 ring-primary focus:ring-2 focus:border-primary focus:ring-primary':
-            //   varient === 'primary',
-            // 'border-white text-white ring-2 ring-slate-300 focus:ring-2 focus:border-primary focus:ring-primary p-1':
-            //   varient === 'secondary',
+            'p-1 border-primary text-white ring-2 ring-primary focus:ring-2 focus:border-primary focus:ring-primary':
+              varient === 'primary',
+            'border-white text-white ring-2 ring-slate-300 focus:ring-2 focus:border-primary focus:ring-primary p-1':
+              varient === 'secondary',
+            '': varient === 'null',
             'disabled:opacity-50 disabled:cursor-not-allowed': isDisabled,
             'w-full': borderSize === 'full',
             'w-4/5': borderSize === 'fit',
@@ -48,10 +51,13 @@ export const Button = (props: IButtonProps): ReactElement => {
             'border-[1px] rounded-full': !isMenu,
           },
         )}
-        onClick={handleClick}
+        onClick={() => {
+          handleClick();
+          setClick(!click);
+        }}
       >
         <span
-          className={clsx('flex items-center justify-center gap-5', {
+          className={clsx('flex justify-start  gap-3', {
             'text-xs': size === 'xs',
             'text-sm': size === 'sm',
             'text-base': size === 'base',
@@ -59,7 +65,18 @@ export const Button = (props: IButtonProps): ReactElement => {
             'text-xl': size === 'xl',
           })}
         >
-          {icon} {text}
+          <div className={clsx({ 'w-8': isChevron === true })}>{icon}</div>
+          <div
+            className={clsx({
+              'w-24': isChevron === true,
+              'w-28': isChevron === false,
+            })}
+          >
+            {text}
+          </div>
+          <div className={clsx({ 'w-8 mt-1': isChevron === true, 'w-0': isChevron === false })}>
+            {isChevron && <img src={click ? ChevronDown : ChevronRight} alt="chevron_down"></img>}
+          </div>
         </span>
       </button>
     </div>

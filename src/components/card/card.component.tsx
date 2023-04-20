@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 import clsx from 'clsx';
-import logo_green from '@assets/logo/logo_ed_acadia_green.svg';
+// import logo_green from '@assets/logo/logo_ed_acadia_green.svg';
 import signal from '@assets/logo/wave-sine.svg';
 import math from '@assets/logo/math-symbols.svg';
 import ioe_logo_white from '@assets/logo/ioe_logo_white.svg';
@@ -40,7 +40,7 @@ export const Card = (props: ICardProps): ReactElement => {
     text = 'Enginering Note',
     showIcon = true,
     img = null,
-    icon = logo_green,
+    icon = ioe_logo_small,
     isSearchCard = false,
     bgcolor = '',
   } = props;

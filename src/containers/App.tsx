@@ -6,6 +6,7 @@ import SignUp from '@containers/signup';
 import Dashboard from '@containers/dashboard';
 import { AuthenticatedRoute, UnauthenticatedRoute } from '@components/authentication';
 import { Toaster } from '@components/toaster';
+import CMS from '@containers/cms';
 interface AppProps {}
 
 const Main: React.FC<AppProps> = () => {
@@ -23,6 +24,7 @@ const AppRoutes = () => {
       <Route path={routes.LOGIN} element={<UnauthenticatedRoute component={Login} />} />
       <Route path={routes.SIGNUP} element={<UnauthenticatedRoute component={SignUp} />} />
       <Route path={routes.DASHBOARD} element={<AuthenticatedRoute component={Dashboard} />} />
+      <Route path={routes.CMS} element={<AuthenticatedRoute component={CMS} />} />
       <Route path="*" element={<Navigate to={routes.LOGIN} replace />} />
     </Routes>
   );

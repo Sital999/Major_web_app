@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/dashboard');
+    navigate('/cms');
   };
   return (
     <>
@@ -30,7 +30,12 @@ const Login = () => {
             <h1 className=" text-lg font-bold">Forgot Password?</h1>
           </div>
           <div>
-            <Button text={'Sign In'} borderSize={'fit'} handleClick={handleClick} />
+            <Button
+              text={'Sign In'}
+              borderSize={'fit'}
+              handleClick={handleClick}
+              varient="primary"
+            />
           </div>
           <div className="ml-10 flex justify-center space-x-2 text-sm text-center">
             <h1 className="text-gray-500">DONT HAVE AN ACCOUNT?</h1>
