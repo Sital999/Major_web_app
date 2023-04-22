@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import clsx from 'clsx';
 import { Button } from '@components/button';
 import Logo from '@assets/logo/ioe_portal_logo.svg';
@@ -8,15 +8,21 @@ import Logo from '@assets/logo/ioe_portal_logo.svg';
 import DashBoard from '@assets/logo/dashboard.svg';
 import Academia from '@assets/logo/academia.svg';
 import Content from '@assets/logo/content.svg';
+import College from '@assets/logo/college.svg';
+import Semester from '@assets/logo/semester.svg';
+import Department from '@assets/logo/department.svg';
+import Subjects from '@assets/logo/subjects.svg';
 
 import Install from '@assets/logo/install.svg';
 
 interface ISideBarProps {
   setDashboard: React.Dispatch<React.SetStateAction<string>>;
   setIsSetting: React.Dispatch<React.SetStateAction<boolean>>;
+  setAcademic: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const SideBar = ({ setDashboard, setIsSetting }: ISideBarProps) => {
+export const SideBar = ({ setDashboard, setIsSetting, setAcademic }: ISideBarProps) => {
+  const [hiddenAcademic, setHiddenAcademic] = useState(true);
   return (
     <div className=" bg-bg-color-1 h-full w-72">
       <div className="sticky top-4 left-1">
@@ -33,6 +39,7 @@ export const SideBar = ({ setDashboard, setIsSetting }: ISideBarProps) => {
               size="lg"
               isMenu
               handleClick={() => {
+                setHiddenAcademic(true);
                 setDashboard('DashBoard');
                 setIsSetting(false);
               }}
@@ -45,11 +52,54 @@ export const SideBar = ({ setDashboard, setIsSetting }: ISideBarProps) => {
               isMenu
               isChevron
               handleClick={() => {
-                // setDashboard('Academia');
+                setDashboard('Academia');
+                setHiddenAcademic(!hiddenAcademic);
                 setIsSetting(false);
               }}
             />
+            <div hidden={hiddenAcademic}>
+              <Button
+                varient="null"
+                icon={<img src={College} alt="College" />}
+                text="College"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setAcademic('College');
+                }}
+              />
 
+              <Button
+                varient="null"
+                icon={<img src={Semester} alt="Semester" />}
+                text="Semester"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setAcademic('Semester');
+                }}
+              />
+              <Button
+                varient="null"
+                icon={<img src={Subjects} alt="Subjects" />}
+                text="Subjects"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setAcademic('Subjects');
+                }}
+              />
+              <Button
+                varient="null"
+                icon={<img src={Department} alt="Department" />}
+                text="Department"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setAcademic('Department');
+                }}
+              />
+            </div>
             <Button
               varient="null"
               icon={<img src={Content} alt="Content" />}
@@ -58,6 +108,7 @@ export const SideBar = ({ setDashboard, setIsSetting }: ISideBarProps) => {
               isMenu
               isChevron
               handleClick={() => {
+                setHiddenAcademic(true);
                 // setDashboard('Content');
               }}
             />

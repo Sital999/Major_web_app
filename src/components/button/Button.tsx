@@ -65,11 +65,10 @@ export const Button = (props: IButtonProps): ReactElement => {
             'text-xl': size === 'xl',
           })}
         >
-          <div className={clsx({ 'w-8': isChevron === true })}>{icon}</div>
+          <div className={clsx('w-8', { 'w-0': icon === null })}>{icon}</div>
           <div
             className={clsx({
-              'w-24': isChevron === true,
-              'w-28': isChevron === false,
+              'w-auto': isChevron === false,
             })}
           >
             {text}
