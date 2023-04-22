@@ -9,10 +9,15 @@ import { HomeDashboard, SearchDashBoard, SettingDashBoard } from '@components/Da
 const Dashboard = () => {
   const [dashboard, setDashboard] = useState('Home');
   const [isSetting, setIsSetting] = useState(false);
+  const [academic, setAcademic] = useState('');
   return (
     <div className="flex">
       <div>
-        <SideBar setDashboard={setDashboard} setIsSetting={setIsSetting} />
+        <SideBar
+          setDashboard={setDashboard}
+          setIsSetting={setIsSetting}
+          setAcademic={setAcademic}
+        />
       </div>
       <div className="flex flex-col bg-bg-color-2  p-5 overflow-hidden">
         <Arrow
