@@ -4,14 +4,14 @@ import ChevronRight from '@assets/logo/chevron_down.svg';
 import { SearchBar } from '@components/searchBar';
 import { useState } from 'react';
 
-interface ICreateCampus {
+interface ICreateDepartment {
   setAddDepartment: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const DepartmentDashboard = () => {
   const [addDepartment, setAddDepartment] = useState(false);
   return (
-    <body id="campus">
+    <body id="department">
       {addDepartment ? (
         <CreateDepartment setAddDepartment={setAddDepartment} />
       ) : (
@@ -23,11 +23,11 @@ const DepartmentDashboard = () => {
 
 export default DepartmentDashboard;
 
-const ShowDepartmentCMS = ({ setAddDepartment }: ICreateCampus) => {
+const ShowDepartmentCMS = ({ setAddDepartment }: ICreateDepartment) => {
   return (
     <>
       <section className="flex flex-row gap-10 p-2 rounded-lg w-9/12 bg-bg-color-1 text-slate-100 child:font-semibold">
-        <h1>Departments</h1>
+        <h1 className="text-lg">Departments</h1>
         <button
           className="bg-primary p-1 rounded-lg text-black"
           onClick={() => {
@@ -77,7 +77,7 @@ const ShowDepartmentCMS = ({ setAddDepartment }: ICreateCampus) => {
   );
 };
 
-const CreateDepartment = ({ setAddDepartment }: ICreateCampus) => {
+const CreateDepartment = ({ setAddDepartment }: ICreateDepartment) => {
   return (
     <>
       <section className="flex flex-row gap-10 p-2 rounded-lg w-9/12 bg-bg-color-1 text-slate-100 child:font-semibold">
