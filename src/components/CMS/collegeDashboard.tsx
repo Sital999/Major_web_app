@@ -27,7 +27,7 @@ const ShowCampusCMS = ({ setAddCollege }: ICreateCampus) => {
   return (
     <>
       <section className="flex flex-row gap-10 p-2 rounded-lg w-9/12 bg-bg-color-1 text-slate-100 child:font-semibold">
-        <h1>Campus</h1>
+        <h1 className="text-lg">Campus</h1>
         <button
           className="bg-primary p-1 rounded-lg text-black"
           onClick={() => {
