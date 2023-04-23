@@ -50,7 +50,7 @@ const ShowCampusCMS = ({ setAddCollege }: ICreateCampus) => {
           </div>
           <div>
             <ul className="space-y-8">
-              <li className="flex flex-row gap-48">
+              <li className="flex flex-row justify-between">
                 <input type="checkbox" />
                 <h1>Name</h1>
                 <h1>University</h1>
@@ -61,7 +61,7 @@ const ShowCampusCMS = ({ setAddCollege }: ICreateCampus) => {
                 return (
                   <li
                     key={index}
-                    className={clsx('flex flex-row gap-40 p-2', {
+                    className={clsx('flex flex-row justify-between p-2', {
                       'bg-green-800': index % 2 === 0,
                     })}
                   >
