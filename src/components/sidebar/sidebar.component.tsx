@@ -12,6 +12,8 @@ import College from '@assets/logo/college.svg';
 import Semester from '@assets/logo/semester.svg';
 import Department from '@assets/logo/department.svg';
 import Subjects from '@assets/logo/subjects.svg';
+import Notes from '@assets/logo/notes.svg';
+import Slides from '@assets/logo/slides.svg';
 
 import Install from '@assets/logo/install.svg';
 
@@ -19,10 +21,12 @@ interface ISideBarProps {
   setDashboard: React.Dispatch<React.SetStateAction<string>>;
   setIsSetting: React.Dispatch<React.SetStateAction<boolean>>;
   setAcademic: React.Dispatch<React.SetStateAction<string>>;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const SideBar = ({ setDashboard, setIsSetting, setAcademic }: ISideBarProps) => {
+export const SideBar = ({ setDashboard, setIsSetting, setAcademic, setContent }: ISideBarProps) => {
   const [hiddenAcademic, setHiddenAcademic] = useState(true);
+  const [hiddenContent, setHiddenContent] = useState(true);
   return (
     <div className=" bg-bg-color-1 h-full w-72">
       <div className="sticky top-4 left-1">
@@ -40,6 +44,7 @@ export const SideBar = ({ setDashboard, setIsSetting, setAcademic }: ISideBarPro
               isMenu
               handleClick={() => {
                 setHiddenAcademic(true);
+                setHiddenContent(true);
                 setDashboard('DashBoard');
                 setIsSetting(false);
               }}
@@ -54,6 +59,7 @@ export const SideBar = ({ setDashboard, setIsSetting, setAcademic }: ISideBarPro
               handleClick={() => {
                 setDashboard('Academia');
                 setHiddenAcademic(!hiddenAcademic);
+                setHiddenContent(true);
                 setIsSetting(false);
               }}
             />
@@ -109,9 +115,33 @@ export const SideBar = ({ setDashboard, setIsSetting, setAcademic }: ISideBarPro
               isChevron
               handleClick={() => {
                 setHiddenAcademic(true);
-                // setDashboard('Content');
+                setHiddenContent(!hiddenContent);
+                setDashboard('Content');
               }}
             />
+            <div hidden={hiddenContent}>
+              <Button
+                varient="null"
+                icon={<img src={Notes} alt="Notes" />}
+                text="Notes"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setContent('Notes');
+                }}
+              />
+
+              <Button
+                varient="null"
+                icon={<img src={Slides} alt="Slides" />}
+                text="Slides"
+                size="base"
+                isMenu
+                handleClick={() => {
+                  setContent('Slides');
+                }}
+              />
+            </div>
           </div>
           <div className="h-1 self-center w-[80%] bg-bg-color-2" />
 

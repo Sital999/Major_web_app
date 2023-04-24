@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [dashboard, setDashboard] = useState('Home');
   const [isSetting, setIsSetting] = useState(false);
   const [academic, setAcademic] = useState('');
+  const [content, setContent] = useState('');
   return (
     <div className="flex">
       <div>
@@ -17,6 +18,7 @@ const Dashboard = () => {
           setDashboard={setDashboard}
           setIsSetting={setIsSetting}
           setAcademic={setAcademic}
+          setContent={setContent}
         />
       </div>
       <div className="flex flex-col bg-bg-color-2  p-5 overflow-hidden">

@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Button } from '@components/button';
 import Settings from '@assets/logo/settings.svg';
-import { Arrow } from '@components/arrow';
 import { SideBar } from '@components/sidebar';
 // import { InputField } from '@components/inputField';
-import { SearchDashBoard, SettingDashBoard } from '@components/DashBoard';
-import { DashBoard, AcademiaDashboard } from '@components/CMS';
+import { SettingDashBoard } from '@components/DashBoard';
+import { DashBoard, AcademiaDashboard, ContentDashboard } from '@components/CMS';
 
 const CMS = () => {
   const [dashboard, setDashboard] = useState('DashBoard');
   const [isSetting, setIsSetting] = useState(false);
   const [academic, setAcademic] = useState('College');
+  const [content, setContent] = useState('Notes');
   return (
     <div className="flex min-h-screen ">
       <div>
@@ -18,6 +18,7 @@ const CMS = () => {
           setAcademic={setAcademic}
           setDashboard={setDashboard}
           setIsSetting={setIsSetting}
+          setContent={setContent}
         />
       </div>
       <div className="flex flex-col bg-bg-color-2  p-5 overflow-hidden">
@@ -42,10 +43,12 @@ const CMS = () => {
             <SettingDashBoard />
           ) : (
             <>
-              {dashboard == 'DashBoard' ? (
+              {dashboard === 'DashBoard' ? (
                 <DashBoard />
-              ) : dashboard == 'Academia' ? (
+              ) : dashboard === 'Academia' ? (
                 <AcademiaDashboard academic={academic} />
+              ) : dashboard === 'Content' ? (
+                <ContentDashboard content={content} />
               ) : (
                 <></>
               )}

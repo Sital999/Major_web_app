@@ -9,3 +9,9 @@ export { default as CollegeDashboard } from './collegeDashboard';
 export { default as DepartmentDashboard } from './departmentDashboard';
 
 export { default as SemesterDashboard } from './semesterDashboard';
+
+export { default as ContentDashboard } from './contentDashboard';
+
+export { default as NotesDashboard } from './noteDashboard';
+
+export { default as SlidesDashboard } from './slidesDashboard';
