@@ -39,7 +39,7 @@ const ShowNotesCMS = ({ setAddNotes }: ICreateNotes) => {
       </section>
 
       <main className="rounded-lg bg-bg-color-1 divide-y text-slate-100 p-2 w-9/12 child:p-2 ">
-        <h1>All Notes</h1>
+        <h1>All Notes </h1>
         <section>
           <div className="flex justify-between ">
             <button className="border border-primary rounded-xl min-w-fit h-10 p-2 flex flex-row gap-2">
@@ -83,15 +83,16 @@ const CreateNotes = ({ setAddNotes }: ICreateNotes) => {
   return (
     <>
       <section className="flex flex-row gap-10 p-2 rounded-lg w-9/12 bg-bg-color-1 text-slate-100 child:font-semibold">
-        <h1>Create New Notes</h1>
+        <h1>Create New Notes and Slides</h1>
       </section>
       <main className="rounded-lg bg-bg-color-1 divide-y text-slate-100 p-2 w-9/12 child:p-2">
-        <h1>New Notes</h1>
+        <h1>New Notes and Slides</h1>
         <section className="flex gap-6">
           <div className="basis-1/2 flex flex-col gap-10 text-right child:pt-1">
             <h1>Title</h1>
             <h1>SubTitle</h1>
             <h1>File</h1>
+            <h1>Category</h1>
             <h1>Campus</h1>
             <h1>Department</h1>
             <h1>Semester</h1>
@@ -110,6 +111,17 @@ const CreateNotes = ({ setAddNotes }: ICreateNotes) => {
               type="file"
               className="ring-1 ring-primary  rounded-md p-3 bg-gray-500 border border-primary"
             />
+            <div className="flex justify-around child:flex child:gap-2 ring-1 ring-primary  rounded-md p-3 bg-gray-500 border border-primary gap-10">
+              <section>
+                <input type="radio" name="content" className="w-6 mt-1" />
+                <h1>Slides</h1>
+              </section>
+              <section>
+                <input type="radio" name="content" className="w-6 mt-1" />
+                <h1>Notes</h1>
+              </section>
+            </div>
+
             <input
               type="text"
               className="ring-1 ring-primary  rounded-md p-3 bg-gray-500 border border-primary"
@@ -132,7 +144,7 @@ const CreateNotes = ({ setAddNotes }: ICreateNotes) => {
                 setAddNotes(false);
               }}
             >
-              Create Notes
+              Create Content
             </button>
           </div>
         </section>
