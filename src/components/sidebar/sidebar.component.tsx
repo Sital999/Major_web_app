@@ -117,6 +117,7 @@ export const SideBar = ({ setDashboard, setIsSetting, setAcademic, setContent }:
                 setHiddenAcademic(true);
                 setHiddenContent(!hiddenContent);
                 setDashboard('Content');
+                setIsSetting(false);
               }}
             />
             <div hidden={hiddenContent}>
