@@ -6,7 +6,7 @@ interface IContentDashboard {
 
 const ContentDashboard = ({ content }: IContentDashboard) => {
   return (
-    <body>
+    <body className="w-screen child:space-y-10">
       {content === 'Notes' ? (
         <NotesDashboard />
       ) : content === 'Slides' ? (
